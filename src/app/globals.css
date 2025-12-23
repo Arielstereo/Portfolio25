@@ -1,26 +1,39 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  @keyframes gradient {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
-}
+  .animate-gradient {
+    animation: gradient 8s linear infinite;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* marquee icons */
+  @keyframes marqueeIconsLeft {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marqueeIconsRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
+  .marquee-icons { overflow: hidden; position: relative; }
+  .marquee-icons-track { display: flex; gap: 1.5rem; width: max-content; }
+  .marquee-icon-wrapper { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; }
+
+  .marquee-icons--left .marquee-icons-track {
+    transform: translateX(0%);
+    animation: marqueeIconsLeft var(--marquee-duration, 20s) linear infinite;
+  }
+  .marquee-icons--right .marquee-icons-track {
+    transform: translateX(-50%);
+    animation: marqueeIconsRight var(--marquee-duration, 20s) linear infinite;
+  }
+
+  /* pause on hover */
+  .marquee-icons:hover .marquee-icons-track { animation-play-state: paused; }
 }
