@@ -6,38 +6,40 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const Testimonial = () => {
   return (
-    <div className="w-fit md:w-2/3 border border-[#3B9DF8] shadow-2xl shadow-blue-500/20 rounded-lg flex flex-col md:flex-row items-center justify-center gap-6 px-6 mt-48 py-16">
+    <div className="w-fit md:w-2/3 surface-1 border border-border-subtle rounded-2xl flex flex-col md:flex-row items-center justify-center gap-8 px-8 md:px-10 mt-32 py-14">
       <Image
-        src="/avatar_blue.jpeg"
+        src="/nerd.jpg"
         width={300}
         height={300}
-        alt="demo/image"
-        className="w-32 md:w-45 h-32 md:h-45 object-cover rounded-full"
+        alt="Ariel Martinez"
+        className="w-32 md:w-40 h-32 md:h-40 object-cover rounded-full ring-1 ring-white/10"
       />
 
       <div className="w-full md:w-[65%] relative">
         <div className="flex flex-col md:flex-row flex-wrap gap-y-2 items-center justify-between relative">
-          <FaQuoteRight className=" absolute top-[-550%] md:top-[-150%] left-[0%] text-[2rem] text-[#3B9DF8]" />
+          <FaQuoteRight className=" absolute top-[-550%] md:top-[-150%] left-[0%] text-3xl text-accent/70" />
           <div className="flex items-center gap-2">
-            <h2 className="text-[1rem] dark:text-[#abc2d3] font-[500]">
-              Ariel Martinez -
+            <h2 className="text-base font-semibold text-text-primary">
+              Ariel Martinez
             </h2>
-            <p className="text-[0.9rem] dark:text-[#abc2d3] text-[#9c9c9c]">
-              Frontend Developer
-            </p>
+            <span className="inline-flex items-center rounded-full border border-border-soft px-2.5 py-0.5 text-xs text-text-secondary">
+              Web Developer
+            </span>
           </div>
         </div>
-        <h2 className="text-[1.5rem] dark:text-[#abc2d3] font-[500] capitalize mt-3">
+        <h2 className="text-2xl font-semibold text-text-primary mt-4 tracking-tight">
           Sobre mí
         </h2>
-        <p className="text-justify dark:text-[#abc2d3] text-[0.9rem] my-3 text-[#424242]">
-          Soy un desarrollador frontend apasionado por crear experiencias web
-          atractivas y funcionales. Con experiencia en React, Next.js y
-          Tailwind, me esfuerzo por escribir código limpio y eficiente. Estoy en
-          búsqueda de un empleo en IT para seguir creciendo profesionalmente y
-          contribuir con mis habilidades al éxito de un equipo dinámico.
+        <p className="text-justify text-text-secondary text-[0.95rem] my-3 leading-relaxed text-pretty">
+          Soy un desarrollador web apasionado por construir productos digitales
+          completos: sitios, aplicaciones y automatizaciones que resuelven
+          problemas reales. Trabajo con React, Next.js y Tailwind para crear
+          interfaces rápidas y accesibles, e integro herramientas de IA y
+          flujos de automatización para aportar valor real a cada proyecto.
+          Busco nuevas oportunidades en IT para seguir creciendo y aportar mis
+          habilidades a un equipo dinámico.
         </p>
-        <FaQuoteLeft className="absolute bottom-[-10%] right-[0%] text-[2rem] text-[#3B9DF8]" />
+        <FaQuoteLeft className="absolute bottom-[-10%] right-[0%] text-3xl text-accent/70" />
       </div>
     </div>
   );

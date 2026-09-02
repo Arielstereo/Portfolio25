@@ -36,9 +36,9 @@ const MarqueeIcons = ({ direction = "left", duration = "20s" }) => {
           return (
             <div
               key={i}
-              className="marquee-icon-wrapper flex items-center justify-center w-12 h-12 rounded-full bg-white/5 dark:bg-white/2 p-2"
+              className="marquee-icon-wrapper flex items-center justify-center w-12 h-12 rounded-full bg-bg-raised border border-border-subtle p-2"
             >
-              <Icon className="w-7 h-7 text-white" aria-hidden />
+              <Icon className="w-7 h-7 text-text-secondary" aria-hidden />
               <span className="sr-only">{item.label}</span>
             </div>
           );

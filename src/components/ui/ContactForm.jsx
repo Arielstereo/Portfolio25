@@ -73,97 +73,118 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="w-full md:w-3/4 my-16 grid grid-cols-1 md:grid-cols-2 gap-[35px] boxShadow p-[30px] rounded-xl">
+    <section className="w-full md:w-4/5 lg:w-3/4 my-16 grid grid-cols-1 md:grid-cols-2 gap-[35px] surface-1 border border-border-subtle rounded-2xl p-[30px]">
       {/*  informations  */}
-      <aside className="w-full bg-gray-800 dark:bg-slate-900 flex flex-col justify-between p-[25px] rounded-md">
+      <aside className="w-full surface-2 rounded-xl flex flex-col justify-between p-[28px]">
         <div>
-          <h1 className="text-[2rem] font-[600] leading-[35px] text-white">
+          <h1 className="text-3xl font-bold tracking-tight text-text-primary">
             Contacto
           </h1>
-          <p className="text-[0.9rem] mt-1 mb-8 text-white">
+          <p className="text-[0.9rem] mt-2 mb-10 text-text-secondary">
             Enviame un mensaje y me pondré en contacto contigo.
           </p>
         </div>
 
-        <div className="flex flex-col gap-[20px] text-gray-300">
-          <p className="flex items-center gap-[8px]">
-            <MdOutlineCall />
-            11 2692-2128
+        <div className="flex flex-col gap-5 text-text-secondary">
+          <p className="flex items-center gap-3 text-sm">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-bg-raised border border-border-subtle text-accent">
+              <MdOutlineCall />
+            </span>
+            <span className="tabular">11 2692-2128</span>
           </p>
-          <p className="flex items-center break-all gap-[8px]">
-            <MdOutlineEmail />
+          <p className="flex items-center break-all gap-3 text-sm">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-bg-raised border border-border-subtle text-accent">
+              <MdOutlineEmail />
+            </span>
             arielfabmartinez@gmail.com
           </p>
-          <p className="flex items-center gap-[8px]">
-            <IoLocationOutline />
+          <p className="flex items-center gap-3 text-sm">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-bg-raised border border-border-subtle text-accent">
+              <IoLocationOutline />
+            </span>
             MonteCastro, CABA, Argentina.
           </p>
         </div>
 
-        <div className="flex gap-[15px] flex-wrap text-black mt-8">
-          <a className="text-[1.2rem] p-2 cursor-pointer rounded-full  bg-sky-500 text-white hover:bg-white hover:text-sky-300 transition-all duration-300 boxShadow">
+        <div className="flex gap-3 flex-wrap mt-10">
+          <a
+            aria-label="GitHub"
+            className="inline-flex items-center justify-center w-10 h-10 text-accent rounded-full border border-border-soft hover:bg-accent hover:text-white transition-colors duration-300"
+          >
             <BsGithub />
           </a>
-          <a className="text-[1.2rem] p-2 cursor-pointer rounded-full  bg-sky-500 text-white hover:bg-white hover:text-sky-300 transition-all duration-300 boxShadow">
+          <a
+            aria-label="LinkedIn"
+            className="inline-flex items-center justify-center w-10 h-10 text-accent rounded-full border border-border-soft hover:bg-accent hover:text-white transition-colors duration-300"
+          >
             <BsLinkedin />
           </a>
         </div>
       </aside>
 
       {/* form area */}
-      <form onSubmit={sendEmail} className="pt-[20px]">
+      <form onSubmit={sendEmail} className="pt-[10px]">
         <div className="flex flex-col sm:flex-row items-center gap-[30px]">
-          <div className="flex flex-col gap-[5px] w-full sm:w-[50%]">
-            <label className="text-[1rem] text-sky-400">Nombre</label>
+          <div className="flex flex-col gap-2 w-full sm:w-[50%]">
+            <label className="text-[0.85rem] font-medium text-text-secondary">
+              Nombre
+            </label>
             <input
               name="username"
               value={data.username}
               onChange={handleChange}
               required
               type="text"
-              className="peer dark:bg-transparent dark:text-[#abc2d3] dark:border-slate-700 border-gray-300 border-b outline-none focus:border-[#3B9DF8] w-full text-gray-400 transition-colors duration-300"
+              placeholder="Tu nombre"
+              className="peer w-full text-text-primary bg-transparent border-b border-border-subtle outline-none transition-colors duration-300 focus:border-accent placeholder:text-text-faint"
             />
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-[30px] mt-10">
-          <div className="flex flex-col gap-[5px] w-full sm:w-[50%]">
-            <label className="text-[1rem] text-sky-400">Email</label>
+        <div className="flex flex-col sm:flex-row items-center gap-[30px] mt-8">
+          <div className="flex flex-col gap-2 w-full sm:w-[50%]">
+            <label className="text-[0.85rem] font-medium text-text-secondary">
+              Email
+            </label>
             <input
               name="email"
               value={data.email}
               onChange={handleChange}
               required
               type="email"
-              className="peer dark:bg-transparent dark:text-[#abc2d3] dark:border-slate-700 border-gray-300 border-b outline-none focus:border-[#3B9DF8] w-full text-gray-400 transition-colors duration-300"
+              placeholder="tu@email.com"
+              className="peer w-full text-text-primary bg-transparent border-b border-border-subtle outline-none transition-colors duration-300 focus:border-accent placeholder:text-text-faint"
             />
           </div>
         </div>
 
-        <div className="flex flex-col gap-[5px] w-full mt-10">
-          <label className="text-[1rem] text-sky-400">Mensaje</label>
+        <div className="flex flex-col gap-2 w-full mt-8">
+          <label className="text-[0.85rem] font-medium text-text-secondary">
+            Mensaje
+          </label>
           <textarea
             name="message"
             value={data.message}
             onChange={handleChange}
             required
-            className="peer dark:bg-transparent dark:text-[#abc2d3] dark:border-slate-700 min-h-[100px] border-gray-300 border-b resize-none outline-none w-full text-gray-400 transition-colors focus:border-[#3B9DF8] duration-300"
+            placeholder="¿En qué puedo ayudarte?"
+            className="peer w-full text-text-primary bg-transparent border-b border-border-subtle min-h-[110px] resize-none outline-none transition-colors duration-300 focus:border-accent placeholder:text-text-faint"
           ></textarea>
         </div>
 
-        <div className="w-full flex items-center sm:items-end justify-center sm:justify-end mt-5">
+        <div className="w-full flex items-center justify-center sm:justify-end mt-7">
           <button
             disabled={isLoading}
             type="submit"
             aria-busy={isLoading}
-            className={`dark:border-slate-700 dark:text-[#abc2d3] dark:hover:bg-slate-900 dark:hover:text-[#abc2d3] dark:hover:border-slate-700 py-2.5 px-6 bg-gray-800 border transition-all duration-300 hover:border-gray-800 hover:text-gray-800 hover:bg-transparent text-white rounded-md text-[1rem] mt-[10px] w-max ${
+            className={`btn-action ${
               isLoading ? "opacity-70 cursor-not-allowed" : ""
             }`}
           >
             {isLoading ? (
               <span className="flex items-center gap-2">
                 <svg
-                  className="animate-spin h-5 w-5 text-white"
+                  className="animate-spin h-5 w-5 text-current"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"

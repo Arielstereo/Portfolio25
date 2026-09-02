@@ -57,12 +57,12 @@ const Timeline = () => {
 
   return (
     <div className="w-full mx-auto p-6 my-32 hidden md:block">
-      <h1 className="text-3xl font-bold mb-16 dark:text-[#abc2d3] text-center">
+      <h1 className="text-3xl md:text-4xl font-bold mb-16 text-text-primary text-center tracking-tight">
         Timeline
       </h1>
 
       <div className="mx-32">
-        <ul className="relative h-fit before:content-[''] before:absolute before:w-1 before:h-full before:bg-gray-200 dark:before:bg-slate-800 before:left-1/2 before:transform before:-translate-x-1/2 before:rounded-md before:z-10">
+        <ul className="relative h-fit before:content-[''] before:absolute before:w-px before:h-full before:bg-border-subtle before:left-1/2 before:transform before:-translate-x-1/2 before:z-10">
           {TimelineData.map((milestone, index) => (
             <li
               key={index}
@@ -76,29 +76,29 @@ const Timeline = () => {
                   index % 2 === 0
                     ? "translate-x-1/2 right-0"
                     : "-translate-x-1/2"
-                }  bg-gray-200 dark:bg-slate-800 rounded-full p-2 z-10 animate-pulse`}
+                }  bg-bg-raised border border-border-soft rounded-full p-2 z-10`}
               >
                 {milestone.icon}
               </div>
 
               <div
-                className={`relative border rounded-md dark:bg-slate-900 dark:border-slate-700 dark:shadow-slate-900 shadow-gray-50 border-gray-200/60 shadow-md ${
+                className={`relative surface-1 border border-border-subtle rounded-lg ${
                   index % 2 === 0 ? "-left-8" : "-right-8"
                 }`}
               >
                 <div className="py-3 px-4">
                   <div>
-                    <div className="text-[#424242] dark:text-[#abc2d3] text-lg font-semibold">
+                    <div className="text-text-primary text-lg font-semibold">
                       {milestone.title}
                     </div>
-                    <div className="text-primary text-sm text-sky-300">
+                    <div className="text-accent text-sm">
                       {milestone.date}
                     </div>
                   </div>
-                  <p className="mt-1 text-sm dark:text-slate-400 text-gray-600">
+                  <p className="mt-1 text-sm text-text-secondary">
                     {milestone.description}
                   </p>
-                  <div className="mt-1 text-sm dark:text-slate-400 text-gray-600">
+                  <div className="mt-1 text-sm text-text-secondary">
                     {milestone.link}
                   </div>
                 </div>

@@ -100,7 +100,7 @@ function CarouselItem({
       }}
       transition={transition}
     >
-      <div className="font-black text-lg text-white">{item.title}</div>
+      <div className="font-black text-lg text-text-primary">{item.title}</div>
       <div className="flex justify-center gap-4 my-4">
         {(item.tech ?? ["React", "Next.js", "Tailwind CSS", "Astro"]).map(
           (t) => (
@@ -120,7 +120,7 @@ function CarouselItem({
         />
       </div>
       <div className="p-5">
-        <p className="text-sm text-white">{item.description}</p>
+        <p className="text-sm text-text-primary">{item.description}</p>
         <Link
           href={item.url}
           target="_blank"
@@ -275,7 +275,7 @@ export default function Carousel({
       className={`relative overflow-hidden p-4 ${
         round
           ? "rounded-full border border-white"
-          : "rounded-[24px] border border-[#222]"
+          : "rounded-[24px] border border-border-soft"
       }`}
       style={{
         width: `${baseWidth}px`,

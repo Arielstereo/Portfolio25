@@ -1,19 +1,31 @@
 const Background = ({ children }) => {
   return (
-    <div className="min-h-screen w-full bg-[#0f0f0f] relative text-white">
-      {/* Concentric Squares - Dark Pattern */}
+    <div className="min-h-screen w-full bg-bg-base relative text-text-primary overflow-hidden">
+      {/* Aurora glows */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none bg-aurora"
+        aria-hidden="true"
+      />
+      {/* Fine technical grid, fading out */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none bg-grid"
+        aria-hidden="true"
+      />
+      {/* Subtle film grain */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none bg-noise"
+        aria-hidden="true"
+      />
+      {/* Scroll vignette to ground the page */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          backgroundImage: `
-        repeating-linear-gradient(0deg, transparent, transparent 5px, rgba(99, 102, 241, 0.15) 5px, rgba(99, 102, 241, 0.15) 6px, transparent 6px, transparent 15px),
-        repeating-linear-gradient(90deg, transparent, transparent 5px, rgba(99, 102, 241, 0.15) 5px, rgba(99, 102, 241, 0.15) 6px, transparent 6px, transparent 15px),
-        repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(139, 92, 246, 0.12) 10px, rgba(139, 92, 246, 0.12) 11px, transparent 11px, transparent 30px),
-        repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(139, 92, 246, 0.12) 10px, rgba(139, 92, 246, 0.12) 11px, transparent 11px, transparent 30px)
-      `,
+          background:
+            "linear-gradient(to bottom, transparent 0%, transparent 70%, rgba(10,10,12,0.6) 100%)",
         }}
+        aria-hidden="true"
       />
-      {children}
+      <div className="relative z-10">{children}</div>
     </div>
   );
 };

@@ -1,7 +1,137 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@theme {
+  --color-bg-base: #0a0a0c;
+  --color-bg-raised: #111114;
+  --color-bg-overlay: #17171b;
+
+  --color-accent: #3b9df8;
+  --color-green: #40ffaa;
+  --color-blue: #4079ff;
+
+  --color-text-primary: #f4f6f8;
+  --color-text-secondary: #b9c3cf;
+  --color-text-muted: #78828f;
+  --color-text-faint: #4a525c;
+
+  --color-border-subtle: rgba(255, 255, 255, 0.07);
+  --color-border-soft: rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+
+  --font-sans: var(--font-figtree);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    letter-spacing: -0.011em;
+  }
+
+  ::selection {
+    background: rgba(64, 255, 170, 0.25);
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.025em;
+    font-feature-settings: "ss01" on;
+  }
+}
+
 @layer utilities {
+  /* ---------- aurora background glows ---------- */
+  .bg-aurora {
+    background:
+      radial-gradient(
+        42rem 32rem at 78% -6%,
+        rgba(64, 121, 255, 0.16),
+        transparent 62%
+      ),
+      radial-gradient(
+        38rem 30rem at 12% -10%,
+        rgba(64, 255, 170, 0.10),
+        transparent 60%
+      ),
+      radial-gradient(
+        32rem 26rem at 50% 112%,
+        rgba(64, 121, 255, 0.10),
+        transparent 64%
+      );
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 35%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 35%, transparent 100%);
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23ffffff' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- text helpers ---------- */
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  /* ---------- surface elevation ---------- */
+  .surface-1 { background-color: var(--color-bg-raised); }
+  .surface-2 { background-color: var(--color-bg-overlay); }
+
+  /* ---------- refined type scale ---------- */
+  .display { font-size: clamp(2.75rem, 6vw, 4.5rem); letter-spacing: -0.04em; line-height: 1.05; }
+  .heading-2 { font-size: clamp(1.75rem, 3vw, 2.25rem); letter-spacing: -0.03em; line-height: 1.15; }
+  .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+
+  /* ---------- primary action button (shared: Hero, form, footer) ---------- */
+  .btn-action {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    overflow: hidden;
+    border-radius: 9999px;
+    padding: 0.7rem 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-soft);
+    background-color: var(--color-bg-raised);
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.12s ease;
+    cursor: pointer;
+  }
+  .btn-action::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+    background: linear-gradient(
+      90deg,
+      rgba(64, 121, 255, 0),
+      rgba(64, 121, 255, 0.18)
+    );
+    z-index: 0;
+  }
+  .btn-action:hover { border-color: rgba(64, 121, 255, 0.55); }
+  .btn-action:hover::before { transform: translateX(0); }
+  .btn-action:active { transform: scale(0.97); }
+  .btn-action > * { position: relative; z-index: 1; }
+
+  /* ---------- gradient animation (GradientText) ---------- */
   @keyframes gradient {
     0%   { background-position: 0% 50%; }
     50%  { background-position: 100% 50%; }
@@ -11,7 +141,7 @@
     animation: gradient 8s linear infinite;
   }
 
-  /* marquee icons */
+  /* ---------- marquee icons ---------- */
   @keyframes marqueeIconsLeft {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
@@ -34,6 +164,5 @@
     animation: marqueeIconsRight var(--marquee-duration, 20s) linear infinite;
   }
 
-  /* pause on hover */
   .marquee-icons:hover .marquee-icons-track { animation-play-state: paused; }
 }
