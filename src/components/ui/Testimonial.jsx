@@ -6,7 +6,7 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const Testimonial = () => {
   return (
-    <div className="w-fit md:w-2/3 surface-1 border border-border-subtle rounded-2xl flex flex-col md:flex-row items-center justify-center gap-8 px-8 md:px-10 mt-32 py-14">
+    <div className="w-fit md:w-3/4 surface-1 border border-border-subtle rounded-2xl flex flex-col md:flex-row items-center justify-center gap-8 px-8 md:px-10 py-12">
       <Image
         src="/nerd.jpg"
         width={300}
@@ -15,7 +15,7 @@ const Testimonial = () => {
         className="w-32 md:w-40 h-32 md:h-40 object-cover rounded-full ring-1 ring-white/10"
       />
 
-      <div className="w-full md:w-[65%] relative">
+      <div className="w-full md:w-[70%] relative">
         <div className="flex flex-col md:flex-row flex-wrap gap-y-2 items-center justify-between relative">
           <FaQuoteRight className=" absolute top-[-550%] md:top-[-150%] left-[0%] text-3xl text-accent/70" />
           <div className="flex items-center gap-2">
@@ -27,10 +27,7 @@ const Testimonial = () => {
             </span>
           </div>
         </div>
-        <h2 className="text-2xl font-semibold text-text-primary mt-4 tracking-tight">
-          Sobre mí
-        </h2>
-        <p className="text-justify text-text-secondary text-[0.95rem] my-3 leading-relaxed text-pretty">
+        <p className="text-justify text-text-secondary text-[0.95rem] my-4 leading-relaxed text-pretty">
           Soy un desarrollador web apasionado por construir productos digitales
           completos: sitios, aplicaciones y automatizaciones que resuelven
           problemas reales. Trabajo con React, Next.js y Tailwind para crear

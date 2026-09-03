@@ -1,12 +1,20 @@
+import SectionHeader from "../ui/SectionHeader";
 import Testimonial from "../ui/Testimonial";
 import Timeline from "../ui/Timeline";
 
 const About = () => {
   return (
-    <div className="flex flex-col justify-center items-center" id="about">
+    <section
+      className="w-full flex flex-col justify-center items-center my-32 px-4"
+      id="about"
+    >
+      <SectionHeader
+        label="Sobre mí"
+        title="Más que código: productos que resuelven problemas"
+      />
       <Testimonial />
       <Timeline />
-    </div>
+    </section>
   );
 };
 

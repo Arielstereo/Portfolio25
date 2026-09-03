@@ -12,30 +12,39 @@ const ResponsiveFooter = () => {
         <FaCode className="text-5xl text-text-muted" />
 
         <p className="text-[0.9rem] text-text-secondary text-center max-w-sm text-pretty">
-          Creación de websites, landing pages, aplicaciones web, integración
-          con IA, automatizaciones.
+          Construyo webs y aplicaciones a medida: desarrollo, integración con IA
+          y automatizaciones para hacer crecer tu proyecto.
         </p>
 
         <a href="#contact" className="btn-action">
-          Contactame
+          Hablemos de tu proyecto
         </a>
 
         <div className="flex gap-3 mt-2">
           <a
             aria-label="WhatsApp"
-            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary rounded-full border border-border-soft hover:border-accent hover:text-accent transition-colors duration-300"
+            href="https://wa.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary rounded-full border border-border-soft hover:border-accent hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <BsWhatsapp />
           </a>
           <a
             aria-label="GitHub"
-            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary rounded-full border border-border-soft hover:border-accent hover:text-accent transition-colors duration-300"
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary rounded-full border border-border-soft hover:border-accent hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <BsGithub />
           </a>
           <a
             aria-label="LinkedIn"
-            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary rounded-full border border-border-soft hover:border-accent hover:text-accent transition-colors duration-300"
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary rounded-full border border-border-soft hover:border-accent hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <BsLinkedin />
           </a>

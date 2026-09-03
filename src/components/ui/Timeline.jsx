@@ -2,6 +2,7 @@ import { FaGraduationCap } from "react-icons/fa6";
 import { FaBriefcase } from "react-icons/fa";
 import Link from "next/link";
 import LinkPreviewExample from "./LinkPreview";
+import SectionHeader from "./SectionHeader";
 
 const Timeline = () => {
   const TimelineData = [
@@ -56,12 +57,10 @@ const Timeline = () => {
   ];
 
   return (
-    <div className="w-full mx-auto p-6 my-32 hidden md:block">
-      <h1 className="text-3xl md:text-4xl font-bold mb-16 text-text-primary text-center tracking-tight">
-        Timeline
-      </h1>
+    <div className="w-full mx-auto p-6 mt-32 hidden md:block">
+      <SectionHeader label="Trayectoria" title="Educación y experiencia" />
 
-      <div className="mx-32">
+      <div className="mx-16 lg:mx-32">
         <ul className="relative h-fit before:content-[''] before:absolute before:w-px before:h-full before:bg-border-subtle before:left-1/2 before:transform before:-translate-x-1/2 before:z-10">
           {TimelineData.map((milestone, index) => (
             <li

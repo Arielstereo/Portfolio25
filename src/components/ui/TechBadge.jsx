@@ -10,77 +10,31 @@ import FigmaIcon from "../icons/Figma";
 import VercelIcon from "../icons/Vercel";
 import MySQLIcon from "../icons/MySql";
 
-const TECH_MAP = {
-  react: {
-    Icon: ReactIcon,
-    classes:
-      "bg-transparent text-text-primary border border-sky-400 shadow-xl shadow-sky-400/20",
-  },
-  next: {
-    Icon: NextIcon,
-    classes:
-      "bg-bg-overlay text-text-primary border border-border-soft shadow-xl shadow-black/10",
-  },
-  tailwind: {
-    Icon: TailwindIcon,
-    classes:
-      "bg-transparent border border-purple-500 text-text-primary shadow-xl shadow-purple-500/20",
-  },
-  astro: {
-    Icon: AstroIcon,
-    classes:
-      "bg-transparent border border-orange-500 text-text-primary shadow-xl shadow-orange-500/20",
-  },
-  git: {
-    Icon: GitIcon,
-    classes:
-      "bg-transparent border border-orange-500 text-text-primary shadow-xl shadow-orange-500/20",
-  },
-  node: {
-    Icon: NodeIcon,
-    classes:
-      "bg-transparent border border-green-500 text-text-primary shadow-xl shadow-green-500/20",
-  },
-  mongodb: {
-    Icon: MongoIcon,
-    classes:
-      "bg-transparent border border-green-500 text-text-primary shadow-xl shadow-green-500/20",
-  },
-  mongo: {
-    Icon: MongoIcon,
-    classes:
-      "bg-transparent border border-green-500 text-text-primary shadow-xl shadow-green-500/20",
-  },
-  figma: {
-    Icon: FigmaIcon,
-    classes:
-      "bg-transparent border border-pink-500 text-text-primary shadow-xl shadow-pink-500/20",
-  },
-  vercel: {
-    Icon: VercelIcon,
-    classes:
-      "bg-transparent text-text-primary border border-neutral-300 shadow-xl shadow-neutral-200/20",
-  },
-  mysql: {
-    Icon: MySQLIcon,
-    classes:
-      "bg-transparent text-text-primary border border-yellow-300 shadow-xl shadow-yellow-200/20",
-  },
+const ICON_MAP = {
+  react: ReactIcon,
+  next: NextIcon,
+  tailwind: TailwindIcon,
+  astro: AstroIcon,
+  git: GitIcon,
+  node: NodeIcon,
+  mongodb: MongoIcon,
+  mongo: MongoIcon,
+  figma: FigmaIcon,
+  vercel: VercelIcon,
+  mysql: MySQLIcon,
 };
 
 export default function TechBadge({ children, name, className = "" }) {
   const key = (name ?? String(children ?? "")).toLowerCase();
-  const meta = TECH_MAP[key] || {};
-  const Icon = meta.Icon;
-  const variant =
-    meta.classes ??
-    "bg-purple-100 text-slate-100 dark:bg-transparent border border-yellow-400 dark:text-purple-100";
+  const Icon = ICON_MAP[key];
 
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full px-2.5 py-0.5 text-sm whitespace-nowrap ${variant} ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-text-secondary border border-border-soft bg-bg-raised transition-colors duration-300 hover:text-text-primary hover:border-accent/60 ${className}`}
     >
-      {Icon ? <Icon className="w-4 h-4 inline-block" /> : null}
+      {Icon ? (
+        <Icon className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
+      ) : null}
       <span>{children}</span>
     </span>
   );

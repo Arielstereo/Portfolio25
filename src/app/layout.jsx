@@ -1,4 +1,4 @@
-import { Figtree } from "next/font/google";
+import { Figtree, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Background from "../components/ui/Background";
 import { Toaster } from "sonner";
@@ -9,6 +9,12 @@ const figtree = Figtree({
   weight: ["400", "500", "600", "700"],
 });
 
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["500", "700"],
+});
+
 export const metadata = {
   title: "Ariel Martinez",
   description: "Portfolio 2026",
@@ -17,7 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${figtree.variable} ${figtree.className} antialiased`}>
+      <body
+        className={`${figtree.variable} ${spaceGrotesk.variable} ${figtree.className} antialiased`}
+      >
         <Background>
           {children}
           <Toaster />

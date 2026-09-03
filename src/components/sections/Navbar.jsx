@@ -1,11 +1,37 @@
 import { useEffect, useState, useRef } from "react";
-import { animate } from "framer-motion";
+import { animate, motion, AnimatePresence } from "framer-motion";
 
 // react icons
 import { BsWhatsapp } from "react-icons/bs";
 import { GrLinkedin } from "react-icons/gr";
 import { CiMenuFries } from "react-icons/ci";
+import { ImCross } from "react-icons/im";
 import { TbBrandGithubFilled } from "react-icons/tb";
+
+const NAV_ITEMS = [
+  { id: "home", label: "Inicio" },
+  { id: "about", label: "Sobre mí" },
+  { id: "projects", label: "Proyectos" },
+  { id: "contact", label: "Contacto" },
+];
+
+const EASE = [0.23, 1, 0.32, 1];
+
+const listVariants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.06, delayChildren: 0.05 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 12 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: EASE },
+  },
+};
 
 const ResponsiveNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,7 +68,7 @@ const ResponsiveNavbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`flex items-center justify-center gap-32 w-full px-16 py-8 fixed top-0 z-50 transition-colors duration-300 ${
+      className={`flex items-center justify-between w-full px-4 sm:px-8 md:justify-center md:gap-32 md:px-16 py-4 md:py-8 fixed top-0 z-50 transition-colors duration-300 ${
         scrolled
           ? "bg-bg-base/80 backdrop-blur-md border-b border-border-subtle"
           : "bg-transparent"
@@ -50,12 +76,7 @@ const ResponsiveNavbar = () => {
     >
       {/* nav menus */}
       <ul className="items-center gap-8 text-[0.95rem] text-text-secondary md:flex hidden">
-        {[
-          { id: "home", label: "Inicio" },
-          { id: "about", label: "Sobre mí" },
-          { id: "projects", label: "Proyectos" },
-          { id: "contact", label: "Contacto" },
-        ].map((item) => (
+        {NAV_ITEMS.map((item) => (
           <li
             key={item.id}
             className="relative group cursor-pointer text-text-secondary hover:text-text-primary transition-colors duration-300 capitalize"
@@ -73,51 +94,92 @@ const ResponsiveNavbar = () => {
       </ul>
 
       {/* community links */}
-      <div className="flex gap-32 justify-center items-center">
-        <div className="flex gap-3">
-          <TbBrandGithubFilled className="text-[1.4rem] text-text-secondary cursor-pointer hover:text-accent transition-colors duration-300" />
-          <GrLinkedin className="text-[1.4rem] text-text-secondary cursor-pointer hover:text-accent transition-colors duration-300" />
-          <BsWhatsapp className="text-[1.4rem] text-text-secondary cursor-pointer hover:text-accent transition-colors duration-300" />
+      <div className="flex w-full items-center justify-between md:w-auto md:justify-center md:gap-4">
+        <div className="flex gap-1.5">
+          <a
+            aria-label="GitHub"
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            <TbBrandGithubFilled className="text-[1.3rem]" />
+          </a>
+          <a
+            aria-label="LinkedIn"
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            <GrLinkedin className="text-[1.3rem]" />
+          </a>
+          <a
+            aria-label="WhatsApp"
+            href="https://wa.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            <BsWhatsapp className="text-[1.3rem]" />
+          </a>
         </div>
-        <div className="flex items-center gap-4">
-          <CiMenuFries
-            className="text-[1.4rem] text-text-secondary cursor-pointer md:hidden flex"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          />
-        </div>
+        <button
+          type="button"
+          aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          className="inline-flex items-center justify-center w-10 h-10 text-text-primary hover:text-accent transition-colors duration-300 md:hidden active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          onClick={() => setIsMenuOpen((v) => !v)}
+        >
+          <motion.span
+            key={isMenuOpen ? "close" : "open"}
+            initial={{ rotate: -45, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            transition={{ duration: 0.25, ease: EASE }}
+          >
+            {isMenuOpen ? (
+              <ImCross className="text-[1.1rem]" />
+            ) : (
+              <CiMenuFries className="text-[1.3rem]" />
+            )}
+          </motion.span>
+        </button>
       </div>
 
-      {/* mobile sidebar */}
-      <aside
-        className={` ${
-          isMenuOpen
-            ? "translate-y-0 opacity-100 z-20"
-            : "translate-y-100 opacity-0 z-[-1]"
-        } md:hidden bg-bg-overlay border-b border-border-subtle p-10 text-center absolute top-18 right-0 w-full rounded-b-md transition-all duration-300`}
-      >
-        <ul className="items-center gap-6 text-xl text-text-primary flex flex-col">
-          <li className="cursor-pointer capitalize">
-            <a href="#home" onClick={(e) => handleNavClick(e, "home")}>
-              Inicio
-            </a>
-          </li>
-          <li className="cursor-pointer capitalize">
-            <a href="#about" onClick={(e) => handleNavClick(e, "about")}>
-              Sobre mi
-            </a>
-          </li>
-          <li className="cursor-pointer capitalize">
-            <a href="#projects" onClick={(e) => handleNavClick(e, "projects")}>
-              Proyectos
-            </a>
-          </li>
-          <li className="cursor-pointer capitalize">
-            <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>
-              Contacto
-            </a>
-          </li>
-        </ul>
-      </aside>
+      {/* mobile menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            id="mobile-menu"
+            initial={{ opacity: 0, y: -12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
+            transition={{ duration: 0.28, ease: EASE }}
+            className="md:hidden absolute top-full right-0 left-0 mx-3 mt-2 bg-bg-overlay/95 backdrop-blur-md border border-border-subtle rounded-2xl shadow-lg overflow-hidden"
+          >
+            <motion.ul
+              variants={listVariants}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              className="flex flex-col p-3"
+            >
+              {NAV_ITEMS.map((item) => (
+                <motion.li key={item.id} variants={itemVariants}>
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(e) => handleNavClick(e, item.id)}
+                    className="relative block px-4 py-3 rounded-xl text-base font-medium text-text-primary hover:text-accent hover:bg-bg-raised transition-colors duration-200"
+                  >
+                    {item.label}
+                  </a>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

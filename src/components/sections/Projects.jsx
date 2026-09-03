@@ -1,29 +1,15 @@
-import Carousel from "../ui/Carousel";
+import SectionHeader from "../ui/SectionHeader";
+import ProjectsGrid from "../ui/ProjectsGrid";
 
 const Projects = () => {
   return (
-    <div id="projects" className="flex gap-4 my-16 justify-center items-center">
-      <div className="relative h-full hidden md:block">
-        <Carousel
-          baseWidth={800}
-          autoplay={true}
-          autoplayDelay={3000}
-          pauseOnHover={true}
-          loop={true}
-          round={false}
-        />
-      </div>
-      <div className="relative h-full flex md:hidden ">
-        <Carousel
-          baseWidth={400}
-          autoplay={true}
-          autoplayDelay={3000}
-          pauseOnHover={true}
-          loop={true}
-          round={false}
-        />
-      </div>
-    </div>
+    <section
+      id="projects"
+      className="w-full max-w-6xl mx-auto my-32 px-4"
+    >
+      <SectionHeader label="Proyectos" title="Cosas que he construido" />
+      <ProjectsGrid />
+    </section>
   );
 };
 

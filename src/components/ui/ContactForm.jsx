@@ -81,7 +81,8 @@ const ContactForm = () => {
             Contacto
           </h1>
           <p className="text-[0.9rem] mt-2 mb-10 text-text-secondary">
-            Enviame un mensaje y me pondré en contacto contigo.
+            Contame sobre tu proyecto — sitio, app o automatización con IA — y
+            te respondo a la brevedad.
           </p>
         </div>
 
