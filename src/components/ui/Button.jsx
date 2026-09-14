@@ -3,7 +3,7 @@ import { FiDownload } from "react-icons/fi";
 
 const Button = () => {
   return (
-    <Link href="/cv26.pdf" download className="btn-action group">
+    <Link href="/ArielMartinez-CV-26.pdf" download className="btn-action group">
       <FiDownload
         className="w-4 h-4 text-accent transition-transform duration-300 group-hover:translate-y-0.5"
         aria-hidden="true"

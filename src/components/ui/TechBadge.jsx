@@ -30,7 +30,7 @@ export default function TechBadge({ children, name, className = "" }) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-text-secondary border border-border-soft bg-bg-raised transition-colors duration-300 hover:text-text-primary hover:border-accent/60 ${className}`}
+      className={`inline-flex items-center justify-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-text-secondary border bg-bg-raised transition-colors duration-300 hover:text-text-primary border-accent/60 ${className}`}
     >
       {Icon ? (
         <Icon className="w-3.5 h-3.5 text-accent" aria-hidden="true" />

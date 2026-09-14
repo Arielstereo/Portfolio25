@@ -1,63 +1,85 @@
 import Image from "next/image";
 import Link from "next/link";
 import TechBadge from "./TechBadge";
-import { FiArrowUpRight } from "react-icons/fi";
+import SectionHeader from "./SectionHeader";
+import { FiArrowUpRight, FiLock } from "react-icons/fi";
 
-const DEFAULT_ITEMS = [
+const PROJECTS = [
   {
     title: "Emprendev",
     description:
-      "Desarrollo de sitios web profesionales para emprendedores y pequeñas empresas. Incluye chatbot de IA para soporte al cliente.",
-    img: "/emprendev.png",
+      "Landing page - modo oscuro. Incluye chatbot de IA para soporte al cliente.",
+    img: "/emprendev-page.png",
     tech: ["Astro", "Tailwind", "React"],
     url: "https://empren.dev",
   },
   {
-    title: "Donar",
+    title: "Diablitas Bags",
     description:
-      "Plataforma de donación de sangre. Registro de donantes y pacientes con notificaciones por correo.",
-    img: "/donar.jpeg",
-    tech: ["Next", "Tailwind", "MongoDB"],
-    url: "https://donar-three.vercel.app/",
+      "Sitio web tipo e-commerce. Buscador de productos - botón de WhatsApp - SEO optimizado.",
+    img: "/diablitas-page.jpeg",
+    tech: ["Next", "Vercel", "Tailwind"],
+    url: "https://diablitas.empren.dev/",
   },
   {
-    title: "MP Clon",
+    title: "Mundial 2026",
     description:
-      "Clon de Mercado Pago. Stack MERN con autenticación y transacciones entre usuarios.",
-    img: "/mp.jpeg",
+      "Sitio web para pronósticos del Mundial 2026. Autenticación de usuarios y panel administrador.",
+    img: "/mundial.png",
+    tech: ["Next", "Tailwind", "Vercel"],
+    url: "https://equo-mundial2026.empren.dev/",
+  },
+  {
+    title: "Stock app",
+    description:
+      "Aplicación de control de stock. Panel para roles: operarios y administrativos. Reportes en Excel. ",
+    img: "/stock-app.png",
+    tech: ["Zustand", "MongoDB", "React"],
+    isPrivate: true,
+  },
+  {
+    title: "Checklist app",
+    description:
+      "Aplicación para crear checklists. Descarga en PDF. Mobile first.",
+    img: "/check.png",
     tech: ["React", "MongoDB", "Node"],
-    url: "https://mp-client-arielstereo.vercel.app/",
+    isPrivate: true,
   },
   {
-    title: "Tesla Shop",
+    title: "Alertas app",
     description:
-      "E-commerce estilo Tesla. Carrito de compras, autenticación y modo oscuro.",
-    img: "/tesla_dark.jpeg",
-    tech: ["Next", "Zustand", "Tailwind"],
-    url: "https://tesla-shop-arielstereo.vercel.app/",
-  },
-  {
-    title: "Dashboard",
-    description:
-      "Panel de administración con Shadcn/ui. Autenticación de usuarios y modo oscuro.",
-    img: "/dash.jpeg",
+      "Aplicación para crear alertas. Envío de notificaciones por email usando Resend.",
+    img: "/alertas.png",
     tech: ["Next", "MongoDB", "Tailwind"],
-    url: "https://dashboard-ariel-martinezs-projects.vercel.app/",
+    isPrivate: true,
+  },
+];
+
+const SECTIONS = [
+  {
+    id: "websites",
+    label: "Sitios web",
+    title: "Diseño y desarrollo",
+    description:
+      "Páginas que desarrollé para emprendimientos. Incluyen landing pages, portfolios y sitios de e-commerce.",
+    items: PROJECTS.slice(0, 3),
   },
   {
-    title: "Portfolio 2024",
+    id: "apps",
+    label: "Aplicaciones",
+    title: "Productos digitales",
     description:
-      "Portfolio personal con animaciones Framer Motion, multilenguaje y deploy en Vercel.",
-    img: "/portfolio24.png",
-    tech: ["Next", "Framer Motion", "Vercel"],
-    url: "https://portfolio.empren.dev/es",
+      "Aplicaciones web que desarrollé para la empresa Tredi Argentina. Entornos reales de trabajo. ",
+    items: PROJECTS.slice(3),
   },
 ];
 
 const ProjectCard = ({ item }) => {
+  const isPrivate = !item.url;
+
   return (
-    <article className="group surface-1 border border-border-subtle rounded-2xl overflow-hidden transition-colors duration-300 hover:border-border-soft">
-      <div className="relative aspect-[16/10] overflow-hidden">
+    <article className="group surface-1 border border-border-subtle rounded-lg overflow-hidden transition-colors duration-300 hover:border-border-soft">
+      <div className="relative aspect-16/10 overflow-hidden">
         <Image
           src={item.img}
           alt={item.title}
@@ -65,7 +87,7 @@ const ProjectCard = ({ item }) => {
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       <div className="p-5">
@@ -73,15 +95,22 @@ const ProjectCard = ({ item }) => {
           <h3 className="text-lg font-semibold text-text-primary tracking-tight">
             {item.title}
           </h3>
-          <Link
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Visitar ${item.title}`}
-            className="inline-flex items-center justify-center w-9 h-9 shrink-0 rounded-full border border-border-subtle text-text-secondary hover:text-accent hover:border-accent/60 transition-colors duration-300"
-          >
-            <FiArrowUpRight className="w-4 h-4" />
-          </Link>
+          {isPrivate ? (
+            <span className="inline-flex items-center gap-1 shrink-0 rounded-full border border-green-300 px-2.5 py-1 text-[0.7rem] font-medium uppercase tracking-wider text-text-muted">
+              <FiLock className="w-3 h-3" />
+              Privado
+            </span>
+          ) : (
+            <Link
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visitar ${item.title}`}
+              className="inline-flex items-center justify-center w-9 h-9 shrink-0 rounded-full border border-border-subtle text-text-secondary hover:text-accent hover:border-accent/60 transition-colors duration-300"
+            >
+              <FiArrowUpRight className="w-4 h-4" />
+            </Link>
+          )}
         </div>
         <p className="mt-2 text-sm text-text-secondary line-clamp-2 text-pretty">
           {item.description}
@@ -98,12 +127,28 @@ const ProjectCard = ({ item }) => {
   );
 };
 
-const ProjectsGrid = () => {
-  return (
+const renderGroup = (section) => (
+  <div key={section.id} className="flex flex-col gap-10">
+    <SectionHeader
+      label={section.label}
+      title={section.title}
+      description={section.description}
+    />
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {DEFAULT_ITEMS.map((item) => (
+      {section.items.map((item) => (
         <ProjectCard key={item.title} item={item} />
       ))}
+    </div>
+  </div>
+);
+
+const ProjectsGrid = () => {
+  const [sites, apps] = SECTIONS;
+
+  return (
+    <div className="flex flex-col gap-24">
+      {renderGroup(sites)}
+      {renderGroup(apps)}
     </div>
   );
 };

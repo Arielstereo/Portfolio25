@@ -1,46 +1,58 @@
-import AnimatedHoverCard from "../ui/AnimatedCardHover";
 import Button from "../ui/Button";
-import GradientText from "../ui/GradientText";
-import SplitText from "../ui/SplitText";
 import TechBadge from "../ui/TechBadge";
+import { FiSend } from "react-icons/fi";
+import StrokeText from "../ui/StrokeText";
+import SplitFlapText from "../ui/SplitFlapText";
 
 const Hero = () => {
   return (
     <div
       id="home"
-      className="w-full mt-20 md:mt-40 py-10 md:py-16 flex flex-col justify-center items-center px-4"
+      className="w-full mt-16 md:mt-40 py-10 flex flex-col justify-center items-center px-4"
     >
       <div className="flex gap-8 justify-center items-center">
-        <div className="flex flex-col items-center">
-          <span className="label text-text-muted mb-5">
-            <span className="inline-block w-8 h-px bg-border-soft align-middle mr-2" />
+        <div className="flex flex-col items-center w-full max-w-2xl">
+          <span className="label text-accent/80 mb-5">
+            <span className="inline-block w-8 h-px bg-accent/80 align-middle mr-2" />
             Portfolio 2026
-            <span className="inline-block w-8 h-px bg-border-soft align-middle ml-2" />
+            <span className="inline-block w-8 h-px bg-accent/80 align-middle ml-2" />
           </span>
-          <SplitText
+          <StrokeText
             text="Ariel Martinez"
-            className="display font-bold text-center text-text-primary mb-4"
-            delay={100}
-            duration={0.6}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-100px"
-            textAlign="center"
+            strokeColor="#3b9df8"
+            fillColor="#F8FAFC"
+            strokeWidth={1.4}
+            drawDuration={1.6}
+            fillDelay={0.2}
+            stagger={0.05}
+            ease="power2.out"
+            trigger="mount"
+            fillMode="fade"
+            fontSize={96}
+            fontSizeMobile={64}
+            fontWeight={800}
+            letterSpacing={-4}
+            reverse={false}
           />
-          <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-            animationSpeed={8}
-            showBorder={false}
-            className="heading-2 font-semibold text-center mt-2"
-          >
-            Web Developer
-          </GradientText>
+          <SplitFlapText
+            words={["DESARROLLADOR WEB", "FRONTEND DEVELOPER"]}
+            flipDuration={0.12}
+            stagger={0.06}
+            cycleDelay={2400}
+            charset="alphanumeric"
+            flipsPerChar={8}
+            tileColor="#111827"
+            textColor="#f8fafc"
+            tileRadius={8}
+            gap={6}
+            fontSize={48}
+            fontSizeMobile={30}
+            loop={false}
+            padTo={8}
+          />
           <p className="mt-5 max-w-xl text-center text-text-secondary text-base md:text-lg text-pretty">
-            Construyo experiencias web modernas, rápidas y escalables — sitios,
-            aplicaciones, integraciones con IA y automatizaciones desde el
+            Construyo experiencias web modernas, rápidas y escalables. <br />
+            Manejo tecnologías Frontend, Backend y herramientas de IA desde el
             diseño hasta el deploy.
           </p>
           <div className="grid grid-cols-3 md:grid-cols-5 justify-center items-center gap-2.5 my-8 w-full max-w-2xl px-2 md:px-0">
@@ -57,8 +69,15 @@ const Hero = () => {
               <TechBadge name="MySql">MySql</TechBadge>
             </div>
           </div>
-          <div className="mt-2 md:mt-6 flex justify-center">
+          <div className="mt-2 md:mt-6 flex flex-col sm:flex-row justify-center gap-4">
             <Button />
+            <a href="#contact" className="btn-action group">
+              <FiSend
+                className="w-4 h-4 text-accent transition-transform duration-300 group-hover:-translate-x-0.5 group-hover:translate-y-0.5"
+                aria-hidden="true"
+              />
+              <span>Contactame</span>
+            </a>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${figtree.variable} ${spaceGrotesk.variable} ${figtree.className} antialiased`}
+        className={`${spaceGrotesk.variable} ${figtree.className} antialiased`}
       >
         <Background>
           {children}

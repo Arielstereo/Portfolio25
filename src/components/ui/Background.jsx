@@ -1,21 +1,22 @@
+"use client";
+
+import ShapeGrid from "./ShapeGrid";
+
 const Background = ({ children }) => {
   return (
     <div className="min-h-screen w-full bg-bg-base relative text-text-primary overflow-hidden">
-      {/* Aurora glows */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none bg-aurora"
-        aria-hidden="true"
-      />
-      {/* Fine technical grid, fading out */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none bg-grid"
-        aria-hidden="true"
-      />
-      {/* Subtle film grain */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none bg-noise"
-        aria-hidden="true"
-      />
+      {/* Animated technical grid - pinned to the viewport */}
+      <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+        <ShapeGrid
+          direction="diagonal"
+          speed={0.4}
+          borderColor="rgba(255,255,255,0.12)"
+          squareSize={44}
+          hoverFillColor="rgba(59,157,248,0.1)"
+          shape="square"
+          hoverTrailAmount={0}
+        />
+      </div>
       {/* Scroll vignette to ground the page */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"

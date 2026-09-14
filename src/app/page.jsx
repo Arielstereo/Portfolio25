@@ -1,7 +1,6 @@
 "use client";
 
 import ResponsiveNavbar from "@/components/sections/Navbar";
-import MarqueeIcons from "@/components/ui/MarqueeIcons";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
@@ -15,7 +14,6 @@ export default function Home() {
       <Hero />
       <About />
       <Projects />
-      <MarqueeIcons direction="left" duration="30s" />
       <Contact />
       <ResponsiveFooter />
     </div>

@@ -47,7 +47,7 @@ const LinkPreviewExample = ({ title, description, img, href }) => {
             }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="absolute z-50 w-64 rounded-lg border dark:bg-slate-800 dark:border-slate-700 bg-white p-3 shadow-lg pointer-events-none"
+            className="absolute z-50 w-64 rounded-lg border dark:bg-black dark:border-slate-700 bg-white p-3 shadow-lg pointer-events-none"
             style={{ bottom: 0, left: 0 }}
           >
             <h4 className="text-lg font-semibold dark:text-[#d2e5f5]">

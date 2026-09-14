@@ -6,6 +6,7 @@ import { MdOutlineCall, MdOutlineEmail } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { CgFacebook } from "react-icons/cg";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { FiSend } from "react-icons/fi";
 import axios from "axios";
 import { toast } from "sonner";
 
@@ -73,50 +74,58 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="w-full md:w-4/5 lg:w-3/4 my-16 grid grid-cols-1 md:grid-cols-2 gap-[35px] surface-1 border border-border-subtle rounded-2xl p-[30px]">
+    <section className="w-full md:w-4/5 lg:w-3/4 grid grid-cols-1 md:grid-cols-2 gap-8 surface-1 border border-border-subtle rounded-2xl p-6 md:p-8">
       {/*  informations  */}
-      <aside className="w-full surface-2 rounded-xl flex flex-col justify-between p-[28px]">
+      <aside className="w-full surface-2 rounded-xl flex flex-col justify-between gap-8 p-7 md:p-8">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-text-primary">
             Contacto
           </h1>
-          <p className="text-[0.9rem] mt-2 mb-10 text-text-secondary">
-            Contame sobre tu proyecto — sitio, app o automatización con IA — y
-            te respondo a la brevedad.
+          <p className="text-sm mt-3 text-text-secondary text-pretty">
+            Estoy abierto a nuevas oportunidades y colaboraciones. Si tienes un
+            proyecto en mente o propuesta, no dudes en escribirme.
           </p>
         </div>
 
         <div className="flex flex-col gap-5 text-text-secondary">
           <p className="flex items-center gap-3 text-sm">
-            <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-bg-raised border border-border-subtle text-accent">
+            <span className="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-lg bg-bg-raised border border-border-subtle text-accent">
               <MdOutlineCall />
             </span>
-            <span className="tabular">11 2692-2128</span>
+            <span style={{ fontVariantNumeric: "tabular-nums" }}>
+              11 2692-2128
+            </span>
           </p>
           <p className="flex items-center break-all gap-3 text-sm">
-            <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-bg-raised border border-border-subtle text-accent">
+            <span className="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-lg bg-bg-raised border border-border-subtle text-accent">
               <MdOutlineEmail />
             </span>
             arielfabmartinez@gmail.com
           </p>
           <p className="flex items-center gap-3 text-sm">
-            <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-bg-raised border border-border-subtle text-accent">
+            <span className="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-lg bg-bg-raised border border-border-subtle text-accent">
               <IoLocationOutline />
             </span>
             MonteCastro, CABA, Argentina.
           </p>
         </div>
 
-        <div className="flex gap-3 flex-wrap mt-10">
+        <div className="flex gap-3 flex-wrap">
           <a
             aria-label="GitHub"
-            className="inline-flex items-center justify-center w-10 h-10 text-accent rounded-full border border-border-soft hover:bg-accent hover:text-white transition-colors duration-300"
+            href="https://github.com/arielstereo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-10 h-10 text-accent rounded-full border border-border-soft hover:bg-accent hover:text-white transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <BsGithub />
           </a>
           <a
             aria-label="LinkedIn"
-            className="inline-flex items-center justify-center w-10 h-10 text-accent rounded-full border border-border-soft hover:bg-accent hover:text-white transition-colors duration-300"
+            href="https://www.linkedin.com/in/arielstereo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-10 h-10 text-accent rounded-full border border-border-soft hover:bg-accent hover:text-white transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <BsLinkedin />
           </a>
@@ -124,43 +133,39 @@ const ContactForm = () => {
       </aside>
 
       {/* form area */}
-      <form onSubmit={sendEmail} className="pt-[10px]">
-        <div className="flex flex-col sm:flex-row items-center gap-[30px]">
-          <div className="flex flex-col gap-2 w-full sm:w-[50%]">
-            <label className="text-[0.85rem] font-medium text-text-secondary">
-              Nombre
-            </label>
-            <input
-              name="username"
-              value={data.username}
-              onChange={handleChange}
-              required
-              type="text"
-              placeholder="Tu nombre"
-              className="peer w-full text-text-primary bg-transparent border-b border-border-subtle outline-none transition-colors duration-300 focus:border-accent placeholder:text-text-faint"
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-col sm:flex-row items-center gap-[30px] mt-8">
-          <div className="flex flex-col gap-2 w-full sm:w-[50%]">
-            <label className="text-[0.85rem] font-medium text-text-secondary">
-              Email
-            </label>
-            <input
-              name="email"
-              value={data.email}
-              onChange={handleChange}
-              required
-              type="email"
-              placeholder="tu@email.com"
-              className="peer w-full text-text-primary bg-transparent border-b border-border-subtle outline-none transition-colors duration-300 focus:border-accent placeholder:text-text-faint"
-            />
-          </div>
+      <form onSubmit={sendEmail} className="flex flex-col justify-center">
+        <div className="flex flex-col gap-2 w-full">
+          <label className="text-sm font-medium text-text-secondary">
+            Nombre
+          </label>
+          <input
+            name="username"
+            value={data.username}
+            onChange={handleChange}
+            required
+            type="text"
+            placeholder="Tu nombre"
+            className="peer w-full text-text-primary bg-transparent border-b border-border-subtle outline-none transition-colors duration-300 focus:border-accent placeholder:text-text-faint"
+          />
         </div>
 
         <div className="flex flex-col gap-2 w-full mt-8">
-          <label className="text-[0.85rem] font-medium text-text-secondary">
+          <label className="text-sm font-medium text-text-secondary">
+            Email
+          </label>
+          <input
+            name="email"
+            value={data.email}
+            onChange={handleChange}
+            required
+            type="email"
+            placeholder="tu@email.com"
+            className="peer w-full text-text-primary bg-transparent border-b border-border-subtle outline-none transition-colors duration-300 focus:border-accent placeholder:text-text-faint"
+          />
+        </div>
+
+        <div className="flex flex-col gap-2 w-full mt-8">
+          <label className="text-sm font-medium text-text-secondary">
             Mensaje
           </label>
           <textarea
@@ -169,16 +174,16 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             placeholder="¿En qué puedo ayudarte?"
-            className="peer w-full text-text-primary bg-transparent border-b border-border-subtle min-h-[110px] resize-none outline-none transition-colors duration-300 focus:border-accent placeholder:text-text-faint"
+            className="peer w-full text-text-primary bg-transparent border-b border-border-subtle min-h-[120px] resize-none outline-none transition-colors duration-300 focus:border-accent placeholder:text-text-faint"
           ></textarea>
         </div>
 
-        <div className="w-full flex items-center justify-center sm:justify-end mt-7">
+        <div className="w-full flex items-center justify-center sm:justify-end mt-9">
           <button
             disabled={isLoading}
             type="submit"
             aria-busy={isLoading}
-            className={`btn-action ${
+            className={`btn-action group ${
               isLoading ? "opacity-70 cursor-not-allowed" : ""
             }`}
           >
@@ -208,7 +213,13 @@ const ContactForm = () => {
                 Enviando...
               </span>
             ) : (
-              "Enviar Mensaje"
+              <span className="flex items-center gap-2">
+                <FiSend
+                  className="w-4 h-4 text-accent transition-transform duration-300 group-hover:-translate-x-0.5 group-hover:translate-y-0.5"
+                  aria-hidden="true"
+                />
+                Enviar Mensaje
+              </span>
             )}
           </button>
         </div>

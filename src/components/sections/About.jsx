@@ -5,7 +5,7 @@ import Timeline from "../ui/Timeline";
 const About = () => {
   return (
     <section
-      className="w-full flex flex-col justify-center items-center my-32 px-4"
+      className="w-full flex flex-col justify-center items-center my-20 md:my-32 px-4"
       id="about"
     >
       <SectionHeader

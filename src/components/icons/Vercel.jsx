@@ -1,4 +1,7 @@
 const Vercel = (props) => (
-  <img src="/vercel.svg" alt="Vercel" width="1em" height="1em" {...props} />
+  <svg {...props} viewBox="0 0 256 222" preserveAspectRatio="xMidYMid">
+    <path fill="#fff" d="m128 0 128 221.705H0z" />
+  </svg>
 );
+
 export default Vercel;

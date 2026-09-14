@@ -98,28 +98,28 @@ const ResponsiveNavbar = () => {
         <div className="flex gap-1.5">
           <a
             aria-label="GitHub"
-            href="https://github.com"
+            href="https://github.com/arielstereo"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="inline-flex items-center justify-center w-11 h-11 text-text-secondary hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <TbBrandGithubFilled className="text-[1.3rem]" />
           </a>
           <a
             aria-label="LinkedIn"
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/arielstereo/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="inline-flex items-center justify-center w-11 h-11 text-text-secondary hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <GrLinkedin className="text-[1.3rem]" />
           </a>
           <a
             aria-label="WhatsApp"
-            href="https://wa.me"
+            href="https://wa.me/5491126922128/?text=Hola%20Ariel,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-10 h-10 text-text-secondary hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="inline-flex items-center justify-center w-11 h-11 text-text-secondary hover:text-accent transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <BsWhatsapp className="text-[1.3rem]" />
           </a>
@@ -129,7 +129,7 @@ const ResponsiveNavbar = () => {
           aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
-          className="inline-flex items-center justify-center w-10 h-10 text-text-primary hover:text-accent transition-colors duration-300 md:hidden active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="inline-flex items-center justify-center w-11 h-11 text-text-primary hover:text-accent transition-colors duration-300 md:hidden active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           onClick={() => setIsMenuOpen((v) => !v)}
         >
           <motion.span

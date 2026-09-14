@@ -47,39 +47,6 @@
 }
 
 @layer utilities {
-  /* ---------- aurora background glows ---------- */
-  .bg-aurora {
-    background:
-      radial-gradient(
-        42rem 32rem at 78% -6%,
-        rgba(64, 121, 255, 0.16),
-        transparent 62%
-      ),
-      radial-gradient(
-        38rem 30rem at 12% -10%,
-        rgba(64, 255, 170, 0.10),
-        transparent 60%
-      ),
-      radial-gradient(
-        32rem 26rem at 50% 112%,
-        rgba(64, 121, 255, 0.10),
-        transparent 64%
-      );
-  }
-
-  .bg-grid {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 35%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 35%, transparent 100%);
-  }
-
-  .bg-noise {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23ffffff' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  }
-
   /* ---------- text helpers ---------- */
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
@@ -91,9 +58,9 @@
   .surface-2 { background-color: var(--color-bg-overlay); }
 
   /* ---------- refined type scale ---------- */
-  .display { font-family: var(--font-display); font-size: clamp(2.75rem, 6vw, 4.5rem); letter-spacing: -0.04em; line-height: 1.05; font-weight: 700; }
-  .heading-2 { font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.25rem); letter-spacing: -0.03em; line-height: 1.15; font-weight: 700; }
-  .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+  .display { font-family: var(--font-display); font-size: clamp(3.75rem, 6vw, 4.5rem); letter-spacing: -0.04em; line-height: 1.05; font-weight: 700; }
+  .heading-2 { font-family: var(--font-display); font-size: clamp(1.25rem, 3.5vw, 2.75rem); letter-spacing: -0.03em; line-height: 1.15; font-weight: 700; }
+  .label { font-size: 0.90rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 
   /* ---------- primary action button (shared: Hero, form, footer) ---------- */
   .btn-action {
@@ -131,17 +98,8 @@
   .btn-action:active { transform: scale(0.97); }
   .btn-action > * { position: relative; z-index: 1; }
 
-  /* ---------- gradient animation (GradientText) ---------- */
-  @keyframes gradient {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  .animate-gradient {
-    animation: gradient 8s linear infinite;
-  }
 
-  /* ---------- marquee icons ---------- */
+    /* ---------- marquee icons ---------- */
   @keyframes marqueeIconsLeft {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
@@ -151,6 +109,7 @@
     100% { transform: translateX(0%); }
   }
 
+ 
   .marquee-icons { overflow: hidden; position: relative; }
   .marquee-icons-track { display: flex; gap: 1.5rem; width: max-content; }
   .marquee-icon-wrapper { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; }
