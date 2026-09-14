@@ -9,7 +9,7 @@ const PROJECTS = [
     title: "Emprendev",
     description:
       "Landing page - modo oscuro. Incluye chatbot de IA para soporte al cliente.",
-    img: "/emprendev-page.png",
+    img: "/emprendev.png",
     tech: ["Astro", "Tailwind", "React"],
     url: "https://empren.dev",
   },
