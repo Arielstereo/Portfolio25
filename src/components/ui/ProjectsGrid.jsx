@@ -8,16 +8,16 @@ const PROJECTS = [
   {
     title: "Emprendev",
     description:
-      "Landing page - modo oscuro. Incluye chatbot de IA para soporte al cliente.",
+      "Landing page. Incluye chatbot de IA para soporte al cliente (Botpress). Formulario de contacto.",
     img: "/emprendev.png",
-    tech: ["Astro", "Tailwind", "React"],
+    tech: ["Astro", "Tailwind", "React Bits"],
     url: "https://empren.dev",
   },
   {
     title: "Diablitas Bags",
     description:
       "Sitio web tipo e-commerce. Buscador de productos - botón de WhatsApp - SEO optimizado.",
-    img: "/diablitas-page.jpeg",
+    img: "/diablitas.png",
     tech: ["Next", "Vercel", "Tailwind"],
     url: "https://diablitas.empren.dev/",
   },
@@ -26,7 +26,7 @@ const PROJECTS = [
     description:
       "Sitio web para pronósticos del Mundial 2026. Autenticación de usuarios y panel administrador.",
     img: "/mundial.png",
-    tech: ["Next", "Tailwind", "Vercel"],
+    tech: ["Next", "Tailwind", "MongoDB"],
     url: "https://equo-mundial2026.empren.dev/",
   },
   {

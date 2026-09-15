@@ -46,7 +46,7 @@ const Hero = () => {
             tileRadius={8}
             gap={6}
             fontSize={48}
-            fontSizeMobile={30}
+            fontSizeMobile={25}
             loop={false}
             padTo={8}
           />
